@@ -1,0 +1,30 @@
+\documentclass[10pt,landscape,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
+\usepackage[nosf]{kpfonts}
+\usepackage[t1]{sourcesanspro}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[top=5mm,bottom=5mm,left=5mm,right=5mm]{geometry} % Increased margins
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{microtype}
+\usepackage{pdfpages}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\let\bar\overline
+\setlength{\parindent}{0pt}
+
+\input{content/def.tex}
+
+\begin{document}
+%\footnotesize
+\small
+\begin{multicols*}{4}
+\header
+    \input{content/prelim.tex}
+    \input{content/theorems.tex}
+\end{multicols*}
+\end{document}

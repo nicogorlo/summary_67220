@@ -1,0 +1,105 @@
+\definecolor{myblue}{cmyk}{1,.72,0,.38}
+\definecolor{theoremgray}{rgb}{0.93,0.93,0.93}
+\definecolor{definitiongray}{rgb}{0.95,0.95,0.95}
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+
+\colorlet{circle edge}{myblue}
+\colorlet{circle area}{myblue!5}
+
+\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
+    outline/.style={draw=circle edge, thick}}
+    
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\everymath\expandafter{\the\everymath \color{myblue}}
+\everydisplay\expandafter{\the\everydisplay \color{myblue}}
+
+\renewcommand{\baselinestretch}{.8}
+\pagestyle{empty}
+
+\global\mdfdefinestyle{header}{%
+linecolor=gray,linewidth=1pt,%
+leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after header
+}
+
+% Define theorem box style
+\global\mdfdefinestyle{theorembox}{%
+  backgroundcolor=theoremgray,
+  linecolor=gray,
+  linewidth=0.5pt,
+  leftmargin=1pt,
+  rightmargin=1pt,
+  innerleftmargin=1pt,
+  innerrightmargin=1pt,
+  innertopmargin=1pt,
+  innerbottommargin=1pt,
+  skipabove=0pt,
+  skipbelow=0pt,
+}
+
+\global\mdfdefinestyle{definitionbox}{%
+  backgroundcolor=definitiongray,
+  linecolor=gray,
+  linewidth=0.5pt,
+  leftmargin=1pt,
+  rightmargin=1pt,
+  innerleftmargin=1pt,
+  innerrightmargin=1pt,
+  innertopmargin=1pt,
+  innerbottommargin=1pt,
+  skipabove=0pt,
+  skipbelow=0pt,
+}
+
+% Custom theorem environment with two optional arguments
+\makeatletter
+\newenvironment{theorem}[2][]{%
+  \begin{mdframed}[style=theorembox]
+    \textbf{Th.#1 #2}
+}{%
+  \end{mdframed}
+}
+\makeatother
+
+\makeatletter
+\newenvironment{remark}[2][]{%
+  \begin{mdframed}[style=theorembox]
+    \textbf{Rm.#1 #2}
+}{%
+  \end{mdframed}
+}
+\makeatother
+
+
+\makeatletter
+\newenvironment{definition}[2][]{%
+  \begin{mdframed}[style=definitionbox]
+    \textbf{Def.#1 #2}
+}{%
+  \end{mdframed}
+}
+\makeatother
+
+\newcommand{\header}{
+\begin{mdframed}[style=header]
+\footnotesize
+\sffamily
+Nonlinear Optimization Cheatsheet\\
+\end{mdframed}
+}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {.2ex}%
+                                {.2ex}%
+                                {\color{myblue}\sffamily\small\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}%
+                                {.2ex}%
+                                {.2ex}%
+                                {\sffamily\bfseries}}
+\makeatother
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{10pt} % Increase space between columns for readability
