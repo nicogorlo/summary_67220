@@ -1,6 +1,7 @@
 \definecolor{myblue}{cmyk}{1,.72,0,.38}
 \definecolor{theoremgray}{rgb}{0.93,0.93,0.93}
-\definecolor{definitiongray}{rgb}{0.95,0.95,0.95}
+\definecolor{definitiongray}{rgb}{0.96,0.96,0.96}
+\definecolor{remarkgray}{rgb}{0.99,0.99,0.99}
 
 \def\firstcircle{(0,0) circle (1.5cm)}
 \def\secondcircle{(0:2cm) circle (1.5cm)}
@@ -22,10 +23,11 @@
 
 \global\mdfdefinestyle{header}{%
 linecolor=gray,linewidth=1pt,%
-leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after header
+leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm,
 }
 
-% Define theorem box style
+\DeclareMathOperator{\iconv}{\mathbin{\star_{\text{inf}}}}%
+
 \global\mdfdefinestyle{theorembox}{%
   backgroundcolor=theoremgray,
   linecolor=gray,
@@ -39,6 +41,21 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after 
   skipabove=0pt,
   skipbelow=0pt,
 }
+
+\global\mdfdefinestyle{remarkbox}{%
+  backgroundcolor=remarkgray,
+  linecolor=gray,
+  linewidth=0.5pt,
+  leftmargin=1pt,
+  rightmargin=1pt,
+  innerleftmargin=1pt,
+  innerrightmargin=1pt,
+  innertopmargin=1pt,
+  innerbottommargin=1pt,
+  skipabove=0pt,
+  skipbelow=0pt,
+}
+
 
 \global\mdfdefinestyle{definitionbox}{%
   backgroundcolor=definitiongray,
@@ -54,7 +71,6 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after 
   skipbelow=0pt,
 }
 
-% Custom theorem environment with two optional arguments
 \makeatletter
 \newenvironment{theorem}[2][]{%
   \begin{mdframed}[style=theorembox]
@@ -66,7 +82,7 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after 
 
 \makeatletter
 \newenvironment{remark}[2][]{%
-  \begin{mdframed}[style=theorembox]
+  \begin{mdframed}[style=remarkbox]
     \textbf{Rm.#1 #2}
 }{%
   \end{mdframed}
@@ -87,7 +103,8 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=1mm,skipabove=0mm, % Added space after 
 \begin{mdframed}[style=header]
 \footnotesize
 \sffamily
-Nonlinear Optimization Cheatsheet\\
+6.7220 Nonlinear Optimization by ngorlo\\
+\vspace{-5pt}
 \end{mdframed}
 }
 
@@ -102,4 +119,4 @@ Nonlinear Optimization Cheatsheet\\
                                 {\sffamily\bfseries}}
 \makeatother
 \setlength{\parindent}{0pt}
-\setlength{\columnsep}{10pt} % Increase space between columns for readability
+\setlength{\columnsep}{5pt}

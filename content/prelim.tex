@@ -1,7 +1,5 @@
 % Preliminaries
 
-\section*{Preliminaries}
-
 % \begin{itemize}
 %     \item triangular inequality
 %     \item Cauchy-Schwarz inequality
@@ -11,3 +9,114 @@
 %     \item Lipschitz continuity
 %     \item TODO: check PSets on inequalities I used
 % \end{itemize}
+
+\begin{theorem}[]{}
+    \textbf{Triangle Inequality}:
+    \vspace{-5pt}\\
+    \begin{equation*}
+        \|{x + y}\| \leq \|{x}\| + \|{y}\|
+    \end{equation*}
+    \vspace{-15pt}\\
+    \begin{equation*}
+        \|{b - a}\| \leq \|{c-a}\| + \|{b-c}\|
+    \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{Cauchy-Schwarz Inequality}:
+    {\footnotesize
+    \vspace{-5pt}\\
+    \begin{equation*}
+        |{\langle x, y \rangle}| \leq \|x\| \cdot \|y\|
+    \end{equation*}
+    \vspace{-12pt}\\
+    \begin{equation*}
+        |{\langle x, y \rangle}|^2 \leq \langle x, x \rangle \cdot \langle y, y \rangle
+    \end{equation*}
+    \vspace{-12pt}\\
+    \begin{equation*}
+        \left(\sum_{i=1}^{n}u_iv_i\right)^2 \leq \left(\sum_{i=1}^{n}u_i^2\right)\left(\sum_{i=1}^{n}v_i^2\right)
+    \end{equation*}
+    \vspace{-5pt}\\
+    }
+    \textbf{H\"older's Inequality}:
+    Let $p, q > 1$ such that $\frac{1}{p} + \frac{1}{q} = 1$, then
+    \vspace{-5pt}\\
+    \begin{equation*}
+        \|f \cdot g\|_1 \leq \|f\|_p \cdot \|g\|_q
+    \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{Jensen's Inequality}:
+    Let $f$ be convex, finite set of points $x_i \in \mathbb{R}^n$, weights $\alpha_i \geq 0$, $\sum_{i=1}^{n}\alpha_i = 1$, then
+    \vspace{-5pt}\\
+    \begin{equation*}
+        f\left(\sum_{i=1}^{n}\alpha_ix_i\right) \leq \sum_{i=1}^{n}\alpha_if(x_i)
+    \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{AM-GM Inequality}:
+    Let $x_1, x_2, \ldots, x_n \in \mathbb{R}_{\geq0}$, then
+    \vspace{-5pt}\\
+    \begin{equation*}
+        \frac{x_1 + x_2 + \ldots + x_n}{n} \geq \sqrt[n]{x_1x_2\ldots x_n}
+    \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{Lipschitz Continuity}:
+    A function $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is Lipschitz continuous with constant $L$ if
+    \vspace{-5pt}\\
+    \begin{equation*}
+        \|f(x) - f(y)\| \leq L\|x - y\|
+    \end{equation*}
+    \textbf{Directional Derivative:}:
+    Let $f: \mathbb{R}^n \rightarrow \mathbb{R}$,
+    \vspace{-4pt}\\
+    \begin{equation*}
+        f^\prime(x; d) = \lim_{t \downarrow 0} \frac{f(x + td) - f(x)}{t} = \langle \nabla f(x), d \rangle
+    \end{equation*}
+    \vspace{-4pt}\\
+    \textbf{Product Rule:}:
+    Let $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, $g: \mathbb{R}^n \rightarrow \mathbb{R}^m$ be differentiable, then
+    \vspace{-4pt}\\
+    \begin{equation*}
+        \nabla (f^\top g) = f^\top \nabla g + g^\top \nabla f
+    \end{equation*}
+    \vspace{-4pt}\\
+    \textbf{Chain Rule:}:
+    Let $f: \mathbb{R} \rightarrow \mathbb{R}^m$, $g: \mathbb{R}^n \rightarrow \mathbb{R}$ be differentiable and let $h(t) = g(f(t))$, then
+    \vspace{-4pt}\\
+    \begin{equation*}
+        h^\prime(t)=\nabla g^\top\left(f(t)\right) f^\prime(t)
+    \end{equation*}
+    \vspace{-4pt}\\
+    in particular, let $x,y\in\mathbb{R}^n$, and define $h(t)=g(x+ty)$, where $g:\mathbb{R}^n\to\mathbb{R}$.
+    \vspace{-4pt}\\
+    $$
+    h'(t)=\nabla g(x+ty)^T y = y^T\nabla g(x+ty)
+    $$
+    \vspace{-5pt}\\
+    \textbf{Square decomposition}:
+    \vspace{-5pt}\\
+    \begin{equation*}
+        \|x+y\|^2 = \|x\|^2 + 2\langle x, y \rangle + \|y\|^2
+    \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{Cholesky Decomposition}:
+    \vspace{-5pt}\\
+    \begin{equation*}
+        A = LL^T, 
+    \end{equation*}
+    \vspace{-5pt}\\
+    where $L$ is lower triangular, $A$ is symmetric positive definite.\\
+    \vspace{-5pt}\\
+    \textbf{Eigendecomposition}:
+    \vspace{-5pt}\\
+    \begin{equation*}
+        A = Q\Lambda Q^\top,
+    \end{equation*}
+    \vspace{-5pt}\\
+    where $Q$ is orthogonal, $\Lambda$ is diagonal. columns of $Q$ are eigenvectors of $A$, $A$ is symmetric.\\
+    \vspace{-5pt}\\
+    \textbf{Boundedness}:
+    Set is bounded iff $\exists r > 0$ s.t. $S \subseteq B_r = \{x: \|x\|_2 \leq r\}$.
+    \textbf{Openness}:
+    for every $x \in S$, $\exists \epsilon > 0$ s.t. $B_\epsilon(x) \subseteq S$.
+    \textbf{Closeness}:
+    $S$ contains all its limit points. Note: a set can be open, closed, neither or both.
+\end{theorem}
