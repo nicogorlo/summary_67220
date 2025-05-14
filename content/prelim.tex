@@ -9,7 +9,7 @@
 %     \item Lipschitz continuity
 %     \item TODO: check PSets on inequalities I used
 % \end{itemize}
-
+{\footnotesize
 \begin{theorem}[]{}
     \textbf{Triangle Inequality}:
     \vspace{-5pt}\\
@@ -22,7 +22,7 @@
     \end{equation*}
     \vspace{-5pt}\\
     \textbf{Cauchy-Schwarz Inequality}:
-    {\footnotesize
+    {
     \vspace{-5pt}\\
     \begin{equation*}
         |{\langle x, y \rangle}| \leq \|x\| \cdot \|y\|
@@ -64,6 +64,17 @@
     \begin{equation*}
         \|f(x) - f(y)\| \leq L\|x - y\|
     \end{equation*}
+    \vspace{-5pt}\\
+    \textbf{Three-point equality}:
+    Let $x_t, x_{t+1}, y \in \mathbb{R}^n$, then
+    \vspace{-5pt}\\
+    $$
+    \begin{aligned}
+        \left\langle x_t-x_{t+1}, y-x_t\right\rangle=-\frac{1}{2}&\left(\left\|y-x_t\right\|_2^2-\left\|y-x_{t+1}\right\|_2^2 \right.\\
+        & \left. +\left\|x_{t+1}-x_t\right\|_2^2\right)
+    \end{aligned}
+    $$
+    \vspace{-3pt}\\
     \textbf{Directional Derivative:}:
     Let $f: \mathbb{R}^n \rightarrow \mathbb{R}$,
     \vspace{-4pt}\\
@@ -120,3 +131,4 @@
     \textbf{Closeness}:
     $S$ contains all its limit points. Note: a set can be open, closed, neither or both.
 \end{theorem}
+}
