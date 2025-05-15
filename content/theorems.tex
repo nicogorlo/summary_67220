@@ -515,8 +515,8 @@
 \end{remark}
 
 
-\begin{definition}[L9.1]{Lorentz cone.}
-    The ice-cream cone, or Lorentz cone, is defined as
+\begin{definition}[L9.1]{Lorentz (ice-cream) cone.}
+    In second-order conic programs (SOCPs):
     \vspace{-4pt}\\
     $$
     \mathcal{L}^n:=\left\{(x, z) \in \mathbb{R}^{n-1} \times \mathbb{R}: z \geq\|x\|_2\right\}
@@ -534,7 +534,7 @@
     \end{aligned}
     $$
     \vspace{-4pt}\\
-    where $\mathbb{S}^n$ is the set of symmetric $n \times n$ real matrices.
+    where $\mathbb{S}^n$ is the set of symmetric $n \times n$ real matrices. This is in semidefinite programs (SDPs).
 \end{definition}
 
 \begin{definition}[L9.3]{Copositive cone.}
@@ -547,8 +547,8 @@
     The difference with the positive semidefinite cone $\mathcal{S}^n$ lies in the fact that we need $a^{\top} X a \geq 0$ only for nonnegative vectors $a \in \mathbb{R}_{\geq 0}^n$, instead of all $a \in \mathbb{R}^n$.
 \end{definition}
 
-\begin{theorem}[L9.1]{Normal cone to the intersection of a hyperplane and a closed convex set.}
-    Let $H:=\left\{x \in \mathbb{R}^n: A x=b\right.$, with $\left.A \in \mathbb{R}^{m \times n}\right\}$ be an affine subspace, and $S$ be a closed convex set (not necessarily a cone) such that $S^{\circ} \cap H$ is nonempty, where $S^{\circ}$ is the interior of $S$. For any $x \in H \cap S$,
+\begin{theorem}[L9.1]{Normal cone of intersection.}
+    Let $H:=\left\{x \in \mathbb{R}^n: A x=b\right.$, with $\left.A \in \mathbb{R}^{m \times n}\right\}$ be an affine subspace, and $S$ be a closed convex set (not necessarily a cone) s.t. $S^{\circ} \cap H \neq \emptyset$, where $S^{\circ}$ is the interior of $S$. For any $x \in H \cap S$,
     \vspace{-4pt}\\
     $$
     \mathcal{N}_{H \cap S}(x)=\mathcal{N}_H(x)+\mathcal{N}_S(x) .
@@ -556,6 +556,8 @@
     \vspace{-5pt}\\
     So, using the fact (see Lecture 2) that $\mathcal{N}_H(x)=\operatorname{colspan}\left(A^{\top}\right)$, we have
     $\mathcal{N}_{H \cap S}(x)=\left\{A^{\top} \mu+z: \mu \in \mathbb{R}^m, z \in \mathcal{N}_S(x)\right\}$ .
+    \\
+    \textbf{Note:} We don't need H to be affine for this additivity property of normal cones to hold, if $S^\circ \cap H^\circ \neq \emptyset$.
 \end{theorem}
 
 \begin{remark}[L9.1]{Polar and dual cone.}
@@ -623,7 +625,7 @@
 \end{theorem}
 
 \begin{theorem}[L9.5]{Conic duality for linear objectives.}
-    Theorem L9.5. If the primal problem
+    If the primal problem
     \vspace{-4pt}\\
     $$
     \begin{aligned}
@@ -663,7 +665,8 @@
         & x \in \mathbb{R}^n,
         \end{array}
     $$
-    \vspace{-5pt}
+    \vspace{-5pt}\\
+    where $f, g_j$ are $n$-variate polynomials with real coefficients, i.e., $f, g_j \in \mathbb{R}[x]$.
 \end{remark}
 
 \begin{definition}[L10.1]{Cone of nonnegative polynomials.}
@@ -722,6 +725,10 @@
 
 % lecture 11
 
+\begin{remark}[L11.x]{$\Omega$ assumptions.}
+    For L11, consider $\Omega \subseteq \mathbb R^n$ compact and convex with $\mathbb B_r(x_0) \subseteq \Omega \subseteq \mathbb B_R(0)$ for some $x_0 \in \Omega$.
+\end{remark}
+
 \begin{definition}[L11.X]{The depth function}
     Let's define $d_y: \Omega \rightarrow \mathbb{R}$,
     \vspace{-4pt}\\
@@ -756,17 +763,17 @@
 
 \begin{definition}[L11.1]{Polar set $\Omega^\circ$.}
     Let $\Omega$ be compact and convex, and such that $\mathbb{B}_r(0) \subseteq$ $\Omega \subseteq \mathbb{B}_R(0)$ for some radii $0<r \leq R$. The polar set $\Omega^{\circ}$ to $\Omega$ is defined as
-    \vspace{-4pt}\\
+    \vspace{-5pt}\\
     $$
     \Omega^{\circ}:=\left\{y \in \mathbb{R}^n:\langle x, y\rangle \leq 1 \quad \forall x \in \Omega\right\}
     $$
-    \vspace{-4pt}
+    \vspace{-5pt}
 \end{definition}
 
 \begin{theorem}[L11.5]{Involution of the polar set.}
     Theorem L11.5. Let the set $\Omega \subseteq \mathbb{R}^n$ be convex and compact, and such that $\mathbb{B}_r(0) \subseteq \Omega \subseteq$ $\mathbb{B}_R(0)$ for some $0<r \leq R$. Then,
     \begin{enumerate}[leftmargin=*]
-        \item the polar set $\Omega^{\circ}$ is convex and compact, and satisfies $\mathbb{B}_{1 / R}(0) \subseteq \Omega^{\circ} \subseteq \mathbb{B}_{1 / r}(0)$; and
+        \item the polar set $\Omega^{\circ}$ is convex and compact, and satisfies $\mathbb{B}_{1 / R}(0) \subseteq \Omega^{\circ} \subseteq \mathbb{B}_{1 / r}(0)$; and \vspace{-4pt}
         \item the bipolar $\left(\Omega^{\circ}\right)^{\circ}$ is equal to $\Omega$.
     \end{enumerate}
 \end{theorem}
@@ -782,11 +789,13 @@
     The construction only requires a single call to the linear optimization oracle.
 \end{theorem}
 
-\begin{remark}[X]{Additional notes:}
-    with matrices, $Ax=b$ $\Leftrightarrow$ $\langle A_k,X \rangle = b_k$ $\forall k=1,...,m$. Where $\langle A_k,X \rangle = \text{tr}(AB^\top) = \sum_{i}\sum_{j}A_{ij}B_{ij}$.\\
+\begin{remark}[X]{Additional notes:}\\
+    - with matrices, $Ax=b$ $\Leftrightarrow$ $\langle A_k,X \rangle = b_k$ $\forall k=1,...,m$. Where $\langle A,B \rangle = \text{tr}(AB^\top) = \sum_{i}\sum_{j}A_{ij}B_{ij}$.\vspace{-3pt}\\
 
-    Nonnegative Cone $\rightarrow$ Linear Programs\\
-    Lorentz Cone $\rightarrow$ Second Order Conic Programs\\
+    - Nonnegative Cone $\rightarrow$ Linear Programs \vspace{-3pt}\\
 
-    Failure modes of constraint qualification: Primal has optimal solution, dual matches value of primal, yet dual does not have maximizer. Primal has optimal solution, dual has optimal solution, but values of problems differ.
+    - Failure modes of constraint qualification: Primal has optimal solution, dual matches value of primal, yet dual does not have maximizer. Primal has optimal solution, dual has optimal solution, but values of problems differ.\vspace{-3pt}\\
+
+    - We don't need strict feasibility in Slater's conditions if $g_j$ are also affine.
+    \vspace{-2pt}
 \end{remark}
