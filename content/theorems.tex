@@ -547,8 +547,8 @@
     The difference with the positive semidefinite cone $\mathcal{S}^n$ lies in the fact that we need $a^{\top} X a \geq 0$ only for nonnegative vectors $a \in \mathbb{R}_{\geq 0}^n$, instead of all $a \in \mathbb{R}^n$.
 \end{definition}
 
-\begin{theorem}[L9.1]{Normal cone to the intersection of a hyperplane and a closed convex set.}
-    Let $H:=\left\{x \in \mathbb{R}^n: A x=b\right.$, with $\left.A \in \mathbb{R}^{m \times n}\right\}$ be an affine subspace, and $S$ be a closed convex set (not necessarily a cone) such that $S^{\circ} \cap H$ is nonempty, where $S^{\circ}$ is the interior of $S$. For any $x \in H \cap S$,
+\begin{theorem}[L9.1]{Normal cone of intersection.}
+    Let $H:=\left\{x \in \mathbb{R}^n: A x=b\right.$, with $\left.A \in \mathbb{R}^{m \times n}\right\}$ be an affine subspace, and $S$ be a closed convex set (not necessarily a cone) s.t. $S^{\circ} \cap H \neq \emptyset$, where $S^{\circ}$ is the interior of $S$. For any $x \in H \cap S$,
     \vspace{-4pt}\\
     $$
     \mathcal{N}_{H \cap S}(x)=\mathcal{N}_H(x)+\mathcal{N}_S(x) .
@@ -556,6 +556,8 @@
     \vspace{-5pt}\\
     So, using the fact (see Lecture 2) that $\mathcal{N}_H(x)=\operatorname{colspan}\left(A^{\top}\right)$, we have
     $\mathcal{N}_{H \cap S}(x)=\left\{A^{\top} \mu+z: \mu \in \mathbb{R}^m, z \in \mathcal{N}_S(x)\right\}$ .
+    \\
+    \textbf{Note:} We don't need H to be affine for this additivity property of normal cones to hold, if $S^\circ \cap H^\circ \neq \emptyset$.
 \end{theorem}
 
 \begin{remark}[L9.1]{Polar and dual cone.}
