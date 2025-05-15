@@ -300,11 +300,10 @@
 \end{definition}
 
 \begin{remark}[L5.4]{Ellipsoid method.}
-    at each iteration, start at a point $c_t$ and a search space (that initially is $\Omega_1 = \Omega$).
+    at each iteration, start with a search ellipsoid $\varepsilon_1$, feasible set $\Omega_1 = \Omega$, and the center of the ellipsoid $c_t$.
     \begin{itemize}[leftmargin=*]
-        \item if $c_t$ is not in the search space, then use a separating hyperplane to cut the search space in half
-        \item if $c_t$ is in the search space, intersect the search space with $H_t = \{x \in \mathbb{R}^n : \langle \nabla f(c_t), x - c_t\rangle \leq 0\}$ (to make the search space contain only points x such that $f(x) \geq f(c_t)$ by Th.L4.3)
-        \item set $\Omega_{t+1} = H_t \cap \Omega_t$
+        \item if $c_t \notin \Omega_t$, then $\varepsilon_{t+1}$ contains the intersection between $\varepsilon_t$ and the halfspace containing $\Omega_t$ returned by the separation oracle
+        \item if $c_t \in \Omega_t$, let $H_t = \{x \in \mathbb{R}^n : \langle \nabla f(c_t), x - c_t\rangle \leq 0\}$, $\Omega_{t+1} := \Omega_t \cap H_t$, and $\varepsilon_{t+1} := \varepsilon_t \cap H_t$. (to make the search space contain only points x such that $f(x) \leq f(c_t)$ by Th.L4.3)
     \end{itemize}
 \end{remark}
 
