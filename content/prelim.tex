@@ -75,21 +75,21 @@
     \end{aligned}
     $$
     \vspace{-3pt}\\
-    \textbf{Directional Derivative:}:
+    \textbf{Directional Derivative}:
     Let $f: \mathbb{R}^n \rightarrow \mathbb{R}$,
     \vspace{-4pt}\\
     \begin{equation*}
         f^\prime(x; d) = \lim_{t \downarrow 0} \frac{f(x + td) - f(x)}{t} = \langle \nabla f(x), d \rangle
     \end{equation*}
     \vspace{-4pt}\\
-    \textbf{Product Rule:}:
+    \textbf{Product Rule}:
     Let $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, $g: \mathbb{R}^n \rightarrow \mathbb{R}^m$ be differentiable, then
     \vspace{-4pt}\\
     \begin{equation*}
         \nabla (f^\top g) = f^\top \nabla g + g^\top \nabla f
     \end{equation*}
     \vspace{-4pt}\\
-    \textbf{Chain Rule:}:
+    \textbf{Chain Rule}:
     Let $f: \mathbb{R} \rightarrow \mathbb{R}^m$, $g: \mathbb{R}^n \rightarrow \mathbb{R}$ be differentiable and let $h(t) = g(f(t))$, then
     \vspace{-4pt}\\
     \begin{equation*}
@@ -123,6 +123,14 @@
     \end{equation*}
     \vspace{-5pt}\\
     where $Q$ is orthogonal, $\Lambda$ is diagonal. columns of $Q$ are eigenvectors of $A$, $A$ is symmetric.\\
+    \vspace{-5pt}\\
+    \textbf{Singular Value Decomposition}:
+    \vspace{-5pt}\\
+    \begin{equation*}
+        A = U\Sigma V^\top,
+    \end{equation*}
+    \vspace{-5pt}\\
+    where $U \in \mathbb R^{m \times m}$, $V \in \mathbb R^{n \times n}$ are orthogonal, $\Sigma \in \mathbb R^{m \times n}$ is diagonal with singular values. $A \in \mathbb R^{m\times n}$.\\
     \vspace{-5pt}\\
     \textbf{Boundedness}:
     Set is bounded iff $\exists r > 0$ s.t. $S \subseteq B_r = \{x: \|x\|_2 \leq r\}$.
