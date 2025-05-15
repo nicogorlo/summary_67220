@@ -763,17 +763,17 @@
 
 \begin{definition}[L11.1]{Polar set $\Omega^\circ$.}
     Let $\Omega$ be compact and convex, and such that $\mathbb{B}_r(0) \subseteq$ $\Omega \subseteq \mathbb{B}_R(0)$ for some radii $0<r \leq R$. The polar set $\Omega^{\circ}$ to $\Omega$ is defined as
-    \vspace{-4pt}\\
+    \vspace{-5pt}\\
     $$
     \Omega^{\circ}:=\left\{y \in \mathbb{R}^n:\langle x, y\rangle \leq 1 \quad \forall x \in \Omega\right\}
     $$
-    \vspace{-4pt}
+    \vspace{-5pt}
 \end{definition}
 
 \begin{theorem}[L11.5]{Involution of the polar set.}
     Theorem L11.5. Let the set $\Omega \subseteq \mathbb{R}^n$ be convex and compact, and such that $\mathbb{B}_r(0) \subseteq \Omega \subseteq$ $\mathbb{B}_R(0)$ for some $0<r \leq R$. Then,
     \begin{enumerate}[leftmargin=*]
-        \item the polar set $\Omega^{\circ}$ is convex and compact, and satisfies $\mathbb{B}_{1 / R}(0) \subseteq \Omega^{\circ} \subseteq \mathbb{B}_{1 / r}(0)$; and
+        \item the polar set $\Omega^{\circ}$ is convex and compact, and satisfies $\mathbb{B}_{1 / R}(0) \subseteq \Omega^{\circ} \subseteq \mathbb{B}_{1 / r}(0)$; and \vspace{-4pt}
         \item the bipolar $\left(\Omega^{\circ}\right)^{\circ}$ is equal to $\Omega$.
     \end{enumerate}
 \end{theorem}
@@ -789,12 +789,13 @@
     The construction only requires a single call to the linear optimization oracle.
 \end{theorem}
 
-\begin{remark}[X]{Additional notes:}
-    with matrices, $Ax=b$ $\Leftrightarrow$ $\langle A_k,X \rangle = b_k$ $\forall k=1,...,m$. Where $\langle A,B \rangle = \text{tr}(AB^\top) = \sum_{i}\sum_{j}A_{ij}B_{ij}$.\\
+\begin{remark}[X]{Additional notes:}\\
+    - with matrices, $Ax=b$ $\Leftrightarrow$ $\langle A_k,X \rangle = b_k$ $\forall k=1,...,m$. Where $\langle A,B \rangle = \text{tr}(AB^\top) = \sum_{i}\sum_{j}A_{ij}B_{ij}$.\vspace{-3pt}\\
 
-    Nonnegative Cone $\rightarrow$ Linear Programs\\
-    Lorentz Cone $\rightarrow$ Second Order Conic Programs\\
+    - Nonnegative Cone $\rightarrow$ Linear Programs \vspace{-3pt}\\
 
-    Failure modes of constraint qualification: Primal has optimal solution, dual matches value of primal, yet dual does not have maximizer. Primal has optimal solution, dual has optimal solution, but values of problems differ.
-    \vspace{-2.5pt}
+    - Failure modes of constraint qualification: Primal has optimal solution, dual matches value of primal, yet dual does not have maximizer. Primal has optimal solution, dual has optimal solution, but values of problems differ.\vspace{-3pt}\\
+
+    - We don't need strict feasibility in Slater's conditions if $g_j$ are also affine.
+    \vspace{-2pt}
 \end{remark}
