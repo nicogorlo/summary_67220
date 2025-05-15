@@ -300,11 +300,10 @@
 \end{definition}
 
 \begin{remark}[L5.4]{Ellipsoid method.}
-    at each iteration, start at a point $c_t$ and a search space (that initially is $\Omega_1 = \Omega$).
+    at each iteration, start with a search ellipsoid $\varepsilon_1$, feasible set $\Omega_1 = \Omega$, and the center of the ellipsoid $c_t$.
     \begin{itemize}[leftmargin=*]
-        \item if $c_t$ is not in the search space, then use a separating hyperplane to cut the search space in half
-        \item if $c_t$ is in the search space, intersect the search space with $H_t = \{x \in \mathbb{R}^n : \langle \nabla f(c_t), x - c_t\rangle \leq 0\}$ (to make the search space contain only points x such that $f(x) \geq f(c_t)$ by Th.L4.3)
-        \item set $\Omega_{t+1} = H_t \cap \Omega_t$
+        \item if $c_t \notin \Omega_t$, then $\varepsilon_{t+1}$ contains the intersection between $\varepsilon_t$ and the halfspace containing $\Omega_t$ returned by the separation oracle
+        \item if $c_t \in \Omega_t$, let $H_t = \{x \in \mathbb{R}^n : \langle \nabla f(c_t), x - c_t\rangle \leq 0\}$, $\Omega_{t+1} := \Omega_t \cap H_t$, and $\varepsilon_{t+1} := \varepsilon_t \cap H_t$. (to make the search space contain only points x such that $f(x) \leq f(c_t)$ by Th.L4.3)
     \end{itemize}
 \end{remark}
 
@@ -338,9 +337,10 @@
             \min _x & f(x) \\
             \text { s.t. } & h_i(x)=0 \quad i \in\{1, \ldots, r\} \\
             & g_j(x) \leq 0 \quad j \in\{1, \ldots, s\}.
-        \end{array} \tag{1, P}
+        \end{array} \tag{1}
     \end{equation}
-    \vspace{-7pt}
+    \vspace{-7pt}\\
+    Note, that in L8, we refer to $(P)$ as the same problem with $f$ convex, $g_j$ convex, and $h_i$ affine.
 \end{remark}
 
 
@@ -444,10 +444,10 @@
         \item the point $x^\star$ admits $\mu^\star$, $\lambda^\star$ such that the KKT conditions hold.
         \item there exist $\mu^\star$, $\lambda^\star$ such that $x^\star$ is minimizer of Lagrangian.
     \end{itemize}
-    Note: the Lagrangian is:
+    Note: the Lagrangian of (P) is:
     \vspace{-4pt}\\
     $$
-    \mathcal{L}(x ; \lambda, \mu)=f(x)+\sum_{i=1}^{r} \lambda_{i} h_{i}(x)+\sum_{j=1}^{s} \mu_{j} g_{j}(x)
+    \mathcal{L}(x ; \lambda, \mu)=f(x)+\sum_{j=1}^{r} \lambda_{j} g_{j}(x)+\sum_{i=1}^{s} \mu_{i} h_{i}(x), \quad \lambda \geq 0
     $$
     \vspace{-4pt}
 \end{remark}
@@ -474,7 +474,7 @@
     As a direct consequence, if (P) admits an optimal solution, then
     \vspace{-4pt}\\
     $$
-    \inf _x \mathcal{L}(x ; \lambda, \mu) \leq \text { value }(P)
+    \inf _x \mathcal{L}(x ; \lambda, \mu) \leq \sup_{\lambda \geq 0, \mu}\inf _x \mathcal{L}(x ; \lambda, \mu) \leq \text { value }(P)
     $$
     \vspace{-4pt}\\
     \textbf{Corollary (Strong Duality)}:\\
@@ -504,13 +504,13 @@
 \begin{remark}[L9.1]{Conic Optimization Problem.}
     Feasible set is intersection between affine subspace and nonempty closed convex cone $\mathcal{K}$:
     \vspace{-4pt}\\
-    $$
+    \begin{equation}
         \begin{array}{cl}
         \min _x & f(x) \\
         \text { s.t. } & A x=b \\
         & x \in \mathcal{K}
-        \end{array}
-    $$
+        \end{array}\tag{2}
+    \end{equation}
     \vspace{-4pt}
 \end{remark}
 
