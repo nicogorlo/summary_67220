@@ -250,7 +250,7 @@
         is convex.
         Note that strong convexity implies strict convexity, and strict convexity implies convexity. Neither of the reverse implications holds.
         \item For $f$ twice differentiable and $\Omega$ open, strong convexity is equivalent to $\nabla^2 f(x) \succeq \mu I \text{ } \forall x \in \Omega$. 
-        \item For $f$ twice differentiable and $\Omega$ open, strong convexity is equivalent to $f(y) \geq f(x) + \langle \nabla f(x), y-x\rangle + \frac{\mu}{2}\|y-x\|_2^2 \text{ } \forall x,y\in\Omega$.
+        \item For $f$ differentiable at $x_0 \in \Omega$ and $\Omega$ open, strong convexity is equivalent to $f(y) \geq f(x_0) + \langle \nabla f(x_0), y-x_0\rangle + \frac{\mu}{2}\|y-x_0\|_2^2 \text{ } \forall y\in\Omega$.
     \end{itemize}
 \end{definition}
 
@@ -629,8 +629,8 @@
     \vspace{-4pt}\\
     $$
     \begin{aligned}
-    \min _x & \langle c, x\rangle \\
-    \text { s.t. } & A x=b \\
+    \min _x & \langle c, x\rangle \\[-4pt]
+    \text { s.t. } & A x=b \\[-5pt]
     & x \in \mathcal{K}
     \end{aligned}
     $$
