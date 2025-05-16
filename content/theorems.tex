@@ -251,6 +251,7 @@
         Note that strong convexity implies strict convexity, and strict convexity implies convexity. Neither of the reverse implications holds.
         \item For $f$ twice differentiable and $\Omega$ open, strong convexity is equivalent to $\nabla^2 f(x) \succeq \mu I \text{ } \forall x \in \Omega$. 
         \item For $f$ differentiable at $x_0 \in \Omega$ and $\Omega$ open, strong convexity is equivalent to $f(y) \geq f(x_0) + \langle \nabla f(x_0), y-x_0\rangle + \frac{\mu}{2}\|y-x_0\|_2^2 \text{ } \forall y\in\Omega$.
+        \item PSet4.1a. For $f$ differentiable and $\mu$-strongly convex, $\Omega$ open: $f(y)\leq f(x) + \langle \nabla f(x), y-x\rangle + \frac{1}{2\mu}\|\nabla f(x)-\nabla f(y)\|_2^2 \quad \forall x,y\in \Omega$.
     \end{itemize}
 \end{definition}
 
@@ -360,12 +361,10 @@
     I(x):=\left\{j \in\{1, \ldots, s\}: c_j^{\top} x=d_j\right\} .
     $$
     \vspace{-4pt}\\
-    Then, the normal cone at any $x \in \Omega$ is given by $\mathcal{N}_{\Omega}(x)={}$
+    Then, the normal cone at any $x \in \Omega$ is given by\\ {\footnotesize$\mathcal{N}_{\Omega}(x)=\left\{\sum_{i=1}^r \mu_i a_i+\sum_{j \in I(x)} \lambda_j c_j: \mu_i \in \mathbb{R}, \lambda_j \in \mathbb{R}_{\geq 0}\right\}$
     \vspace{-4pt}\\
-    {\footnotesize
     $$
     \begin{aligned}
-    =&\left\{\sum_{i=1}^r \mu_i a_i+\sum_{j \in I(x)} \lambda_j c_j: \mu_i \in \mathbb{R}, \lambda_j \in \mathbb{R}_{\geq 0}\right\} \\
     =&\left\{\sum_{i=1}^r \mu_i a_i+\sum_{j=1}^s \lambda_j c_j: \mu_i \in \mathbb{R}, \lambda_j \in \mathbb{R}_{\geq 0}\right.,\\
     &\quad\left.\lambda_j\left(d_j-c_j^{\top} x\right)=0 \text{ } \forall j=1, \ldots, s\right\},\\
     \end{aligned}
@@ -374,6 +373,20 @@
     \vspace{-4pt}\\
     where the second equality simply rewrites the condition $j \in I(x)$ via complementary slackness (see L3.1).
 \end{theorem}
+
+\begin{remark}[]{}
+    {\footnotesize%
+    \textbf{Additional Note:} (PSet2.3a) Let $f:\Omega \rightarrow \mathbb{R}$ be convex, $\Omega$ convex. Consider any point $x$ in interior of $\Omega$. Then $f$ is continuous at $x$. Th4.3.1 restated:
+    \vspace{-4pt}\\ 
+    $$
+    \begin{aligned}
+        & f(x\pm t \epsilon)-f(x) \leq t(f(x \pm \epsilon)-f(x)) \\
+        & f(x\pm t \epsilon)-f(x) \geq t(f(x)-f(x\mp \epsilon))
+    \end{aligned}
+    $$
+    \vspace{-3pt}
+    }
+\end{remark}
 
 \newpage
 
@@ -790,6 +803,7 @@
 \end{theorem}
 
 \begin{remark}[X]{Additional notes:}\\
+    {\footnotesize%
     - with matrices, $Ax=b$ $\Leftrightarrow$ $\langle A_k,X \rangle = b_k$ $\forall k=1,...,m$. Where $\langle A,B \rangle = \text{tr}(AB^\top) = \sum_{i}\sum_{j}A_{ij}B_{ij}$.\vspace{-3pt}\\
 
     - Nonnegative Cone $\rightarrow$ Linear Programs \vspace{-3pt}\\
@@ -797,5 +811,8 @@
     - Failure modes of constraint qualification: Primal has optimal solution, dual matches value of primal, yet dual does not have maximizer. Primal has optimal solution, dual has optimal solution, but values of problems differ.\vspace{-3pt}\\
 
     - We don't need strict feasibility in Slater's conditions if $g_j$ are also affine.
-    \vspace{-2pt}
+    \vspace{-3pt}\\
+
+    - PSet1.5a: Let the function $f: \mathbb{R}^n \rightarrow \mathbb{R}$ be differentiable and bounded below. For any $\epsilon>0$, there exists some point $x_\epsilon \in \mathbb{R}^n$ such that $\left\|\nabla f\left(x_\epsilon\right)\right\|_2 \leq \epsilon$.
+    }
 \end{remark}
